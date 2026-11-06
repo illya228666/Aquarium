@@ -4,5 +4,6 @@
        before MSBuildProjectExtensionsPath / IntermediateOutputPath are computed. -->
   <PropertyGroup Condition="'$(OS)' == 'Windows_NT' and '$(TEMP)' != ''">
     <BaseIntermediateOutputPath>$(TEMP)\AquariumBuild\$(MSBuildProjectName)\obj\</BaseIntermediateOutputPath>
+    <DefaultItemExcludes>$(DefaultItemExcludes);obj/**</DefaultItemExcludes>
   </PropertyGroup>
 </Project>

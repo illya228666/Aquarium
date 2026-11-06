@@ -1,4 +1,3 @@
-using Aquarium.Core;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,7 +35,7 @@ public partial class MainWindow : Window
             return;
         }
 
-        Aquarium meinAquarium = new Aquarium(laenge, breite, hoehe);
+        Aquarium.Core.Aquarium meinAquarium = new(laenge, breite, hoehe);
         double materialpreis = meinAquarium.Glasflaeche * glaspreis;
         double preis = meinAquarium.GetPreis(glaspreis);
         if (!double.IsFinite(meinAquarium.Volumen) || !double.IsFinite(preis))

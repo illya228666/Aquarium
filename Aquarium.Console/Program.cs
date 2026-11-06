@@ -1,6 +1,5 @@
 using System.Globalization;
 using System.Text;
-using Aquarium.Core;
 
 Console.InputEncoding = Encoding.UTF8;
 Console.OutputEncoding = Encoding.UTF8;
@@ -13,7 +12,7 @@ double breite = LeseZahl("Breite (cm)", 35, true);
 double hoehe = LeseZahl("Höhe (cm)", 35, true);
 double glaspreis = LeseZahl("Glaspreis (€/dm²)", 0.40, false);
 
-Aquarium aquarium = new(laenge, breite, hoehe);
+Aquarium.Core.Aquarium aquarium = new(laenge, breite, hoehe);
 double preis = aquarium.GetPreis(glaspreis);
 if (!double.IsFinite(aquarium.Volumen) || !double.IsFinite(aquarium.Glasflaeche) || !double.IsFinite(preis))
 {
