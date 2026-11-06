@@ -24,6 +24,10 @@ Alle drei Projekte definieren ihren eigenen festen Target Framework: `Aquarium.C
 
 Bei alten Build-Artefakten nach dem Verschieben oder Umstellen der .NET-Version zunächst die `bin`- und `obj`-Ordner aller drei Projekte löschen und anschließend `dotnet restore Aquarium.sln` ausführen.
 
+## Lange Windows-Pfade
+
+Die Quelldateien können an ihrem ursprünglichen Ort bleiben, auch wenn der Checkout-Pfad lang ist. `Directory.Build.props` leitet auf Windows nur die von MSBuild und NuGet generierten Zwischenartefakte (`obj` und `project.assets.json`) nach `%TEMP%\AquariumBuild\<Projektname>\obj\` um. Ausgabedateien (`bin`) bleiben im Projekt. Nach einem Update das Projekt in Visual Studio neu laden und einmal `dotnet restore Aquarium.sln` ausführen. Falls mehrere Aquarium-Checkouts parallel auf demselben Rechner existieren, sollten sie nicht gleichzeitig mit demselben Temp-Zwischenverzeichnis gebaut werden.
+
 ## Berechnung
 
 - Maße in Zentimetern; alle müssen größer als 0 sein.
