@@ -1,0 +1,8 @@
+<Project>
+  <!-- Keep NuGet assets, generated WPF files, and compiler intermediates out of
+       very long source checkout paths. Directory.Build.props is imported early,
+       before MSBuildProjectExtensionsPath / IntermediateOutputPath are computed. -->
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT' and '$(TEMP)' != ''">
+    <BaseIntermediateOutputPath>$(TEMP)\AquariumBuild\$(MSBuildProjectName)\obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+</Project>
