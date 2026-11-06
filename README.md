@@ -20,7 +20,9 @@ dotnet run --project Aquarium.Wpf
 
 Für WPF wird Windows mit der passenden .NET Desktop Runtime benötigt. Die Lösung `Aquarium.sln` kann unabhängig von `all-tasks-and-launcher` geöffnet werden.
 
-Der Ziel-Framework-Wert ist wie im Ursprungsprojekt vom MSBuild/SDK abhängig (net7.0 oder net10.0), konfiguriert durch die lokale `Directory.Build.props`.
+Alle drei Projekte definieren ihren eigenen festen Target Framework: `Aquarium.Core` und `Aquarium.Console` verwenden `net7.0`, `Aquarium.Wpf` verwendet `net7.0-windows`. Die Programme sind dadurch auch dann separat baubar, wenn nur die Projektordner kopiert werden. Für Console und WPF ist `RollForward=Major` aktiviert, damit bei Bedarf eine neuere installierte .NET-Runtime genutzt werden kann.
+
+Bei alten Build-Artefakten nach dem Verschieben oder Umstellen der .NET-Version zunächst die `bin`- und `obj`-Ordner aller drei Projekte löschen und anschließend `dotnet restore Aquarium.sln` ausführen.
 
 ## Berechnung
 
@@ -31,4 +33,4 @@ Der Ziel-Framework-Wert ist wie im Ursprungsprojekt vom MSBuild/SDK abhängig (n
 
 Beispiel: 80 × 35 × 35 cm, 0,40 €/dm² → **98 Liter**, **108,50 dm²**, **65 €**.
 
-Das Verzeichnis ist im übergeordneten Repository zunächst eine eigenständige **Projektstruktur**, noch kein eigener Git-Remote oder Submodule. Es kann separat ausgecheckt und in ein eigenständiges Repository überführt werden.
+Dieses Repository ist eigenständig und wird von `all-tasks-and-launcher` als Git-Submodule unter `07_Klassen_und_Objekte/Aquarium` eingebunden.
